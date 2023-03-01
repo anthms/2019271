@@ -1,0 +1,9 @@
+on:
+  pull_request_target:
+    types: [edited, synchronize]
+
+jobs:
+  job-name:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Done"
