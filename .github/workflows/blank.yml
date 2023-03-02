@@ -1,6 +1,9 @@
 on:
   pull_request_target:
     types: [edited, synchronize]
+  push:
+    branches:
+      - '*'
 
 jobs:
   job-name:
