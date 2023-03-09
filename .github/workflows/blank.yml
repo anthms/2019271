@@ -1,12 +1,19 @@
+name: "PR Title Checker"
 on:
   pull_request_target:
-    types: [edited, synchronize]
-  push:
-    branches:
-      - '*'
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
-  job-name:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Done"
+      - uses: thehanimo/pr-title-checker@v1.3.6
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pass_on_octokit_error: false
+          configuration_path: ".github/pr-title-checker-config.json"
