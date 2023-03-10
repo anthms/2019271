@@ -10,7 +10,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github.event) }}"
+      - uses: hmarr/debug-action@v2.1.0
       - uses: thehanimo/pr-title-checker@v1.3.6
         with:
           GITHUB_TOKEN: ${{ secrets.PAT }}
